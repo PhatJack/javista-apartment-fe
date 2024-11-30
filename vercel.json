@@ -1,0 +1,84 @@
+{
+	"rewrites": [
+		{
+			"source": "/login",
+			"destination": "/"
+		},
+		{
+			"source": "/payment",
+			"destination": "/"
+		},
+		{
+			"source": "/",
+			"destination": "/"
+		},
+		{
+			"source": "/packages/:id*",
+			"destination": "/"
+		},
+		{
+			"source": "/surveys/:id*",
+			"destination": "/"
+		},
+		{
+			"source": "/reports/:id*",
+			"destination": "/"
+		},
+		{
+			"source": "/bills/:id*",
+			"destination": "/"
+		},
+		{
+			"source": "/chat",
+			"destination": "/"
+		},
+		{
+			"source": "/admin",
+			"destination": "/"
+		},
+		{
+			"source": "/admin/apartments/:id*",
+			"destination": "/"
+		},
+		{
+			"source": "/admin/services",
+			"destination": "/"
+		},
+		{
+			"source": "/admin/users",
+			"destination": "/"
+		},
+		{
+			"source": "/admin/packages",
+			"destination": "/"
+		},
+		{
+			"source": "/admin/bills",
+			"destination": "/"
+		},
+		{
+			"source": "/admin/surveys/:id*",
+			"destination": "/"
+		},
+		{
+			"source": "/admin/reports/:id*",
+			"destination": "/"
+		},
+		{
+			"source": "/admin/settings/:id*",
+			"destination": "/"
+		},
+		{
+			"source": "/admin/statistics",
+			"destination": "/"
+		},
+		{
+			"source": "/admin/chat/:id*",
+			"destination": "/"
+		},
+		{
+			"source": "/404",
+			"destination": "/"
+		}
+	]
+}
