@@ -1,7 +1,5 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Timestamp } from '@firebase/firestore-types'
 import { useAppSelector } from '@/store'
-import { useGetUserByIdQuery } from '@/features/user/userSlice'
 
 interface MessageProps {
   senderId: number
@@ -10,9 +8,6 @@ interface MessageProps {
 }
 const Index = ({ senderId, text, timestamp }: MessageProps) => {
   const user = useAppSelector((state) => state.userReducer.user)
-  const { data: userSend } = useGetUserByIdQuery(senderId, {
-    skip: !senderId,
-  })
   return (
     <div
       className={`grid gap-x-3 gap-y-1 w-full ${

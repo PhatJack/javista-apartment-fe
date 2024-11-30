@@ -29,7 +29,6 @@ import {
   usePaidByMomoMutation,
   usePaidByVnpayMutation,
 } from '@/features/bill/billSlice'
-import { useNavigate } from 'react-router-dom'
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query'
 interface BillPaidDialogProps {
   children: React.ReactNode
@@ -37,7 +36,6 @@ interface BillPaidDialogProps {
 }
 
 const BillPaidDialog = ({ children, id }: BillPaidDialogProps) => {
-  const navigate = useNavigate()
   const [usePaidByVnpay, { isLoading: isPaidByVnpayLoading }] =
     usePaidByVnpayMutation()
   const [usePaidByMomo, { isLoading: isPaidByMomoLoading }] =

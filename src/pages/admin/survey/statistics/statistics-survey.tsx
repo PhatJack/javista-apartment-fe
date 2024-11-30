@@ -16,13 +16,10 @@ interface StatisticsSurveyProps {
 
 const StatisticsSurvey = ({
   surveyId,
-  showStatistics,
   setShowStatistics,
 }: StatisticsSurveyProps) => {
   const {
     data: surveyStat,
-    isLoading,
-    isFetching,
   } = useGetSurveyStatisticsQuery(surveyId)
 
   console.log(surveyStat)

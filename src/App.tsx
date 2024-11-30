@@ -7,10 +7,11 @@ import { getUserInformation, useLazyGetCurrentUserQuery } from './features/user/
 import { useAppDispatch } from './store'
 import { userLoggedIn } from './features/auth/authSlice'
 import { useLazyGetRelationshipsQuery } from './features/relationships/relationshipsSlice'
+import { toast } from 'sonner'
 function App() {
   const cookie = new Cookies(null, { path: '/' })
   const dispatch = useAppDispatch()
-  const [getCurrentUser, { data: user }] = useLazyGetCurrentUserQuery()
+  const [getCurrentUser] = useLazyGetCurrentUserQuery()
   const [getRelationships] = useLazyGetRelationshipsQuery()
   useEffect(() => {
     const handleGetCurrentUser = async () => {
@@ -30,6 +31,8 @@ function App() {
               })
           })
           .catch((error) => {
+						console.log(error)
+            toast.error('Can not get user information')
             throw new Error("can't get user information")
           })
       }

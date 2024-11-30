@@ -1,13 +1,13 @@
 import { formatDateWithSlash } from '@/utils/Generate'
 import ReportForm from './report-form'
 import { Button } from '@/components/ui/button'
-import { IReport } from '@/schema/report.validate'
+import { ReportType } from '@/schema/report.validate'
 import AlertDelete from '@/components/alert/AlertDelete'
 import { useDeleteReportMutation } from '@/features/reports/reportSlice'
 import { toast } from 'sonner'
 
 interface ReportItemProps {
-  report: IReport
+  report: ReportType
 }
 
 const ReportItem = ({ report }: ReportItemProps) => {
@@ -27,7 +27,7 @@ const ReportItem = ({ report }: ReportItemProps) => {
     <div className="p-4 w-full h-[310px] bg-white rounded-md flex flex-col gap-4 border">
       <div className="w-full flex justify-between items-center">
         <span className="font-medium">
-          {formatDateWithSlash(new Date(report.createdAt))}
+          {report.createdAt ? formatDateWithSlash(new Date(report.createdAt)) : 'N/A'}
         </span>
         <ReportForm mode="update" report={report}>
           <Button variant={'default'} size={'sm'}>

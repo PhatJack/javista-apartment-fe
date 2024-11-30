@@ -8,17 +8,11 @@ import { useQuery } from '@/utils/QueryURL'
 
 const MomoPaymentSuccess = () => {
   const query = useQuery()
-  const partnerCode = query.get('partnerCode')
-  const orderId = query.get('orderId')
-  const requestId = query.get('requestId')
   const amount = query.get('amount')
-  const orderInfo = query.get('orderInfo')
   const orderType = query.get('orderType')
   const transId = query.get('transId')
   const resultCode = query.get('resultCode')
   const message = query.get('message')
-  const extraData = query.get('extraData')
-  const signature = query.get('signature')
   const responseTime = query.get('responseTime')
 	console.log(responseTime)
   return (

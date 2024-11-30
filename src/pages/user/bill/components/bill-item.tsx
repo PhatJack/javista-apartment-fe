@@ -1,9 +1,9 @@
 import { Separator } from '@/components/ui/separator'
-import { Bill } from '@/schema/bill.validate'
+import { IBill } from '@/schema/bill.validate'
 import { useNavigate, useParams } from 'react-router-dom'
 
 interface BillItemProps {
-  bill: Bill
+  bill: IBill
 }
 
 const BillItem = ({ bill }: BillItemProps) => {
@@ -27,7 +27,7 @@ const BillItem = ({ bill }: BillItemProps) => {
 			</div> */}
         <div className="w-full grid grid-cols-[100px_auto] text-sm">
           <span className="text-muted-foreground">Date:</span>
-          <span className="">{bill.createdAt}</span>
+          <span className="">{bill.createdAt?.toString()}</span>
         </div>
         <div className="w-full grid grid-cols-[100px_auto] text-sm">
           <span className="text-muted-foreground">Total:</span>

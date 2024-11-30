@@ -21,7 +21,7 @@ const ColumnDisplayTable = ({ apartmentData }: ColumnDisplayTableProps) => {
   const handleGetRelationships = async () => {
     await getRelationships({ apartmentId: apartmentData?.id, page: 1 })
       .unwrap()
-      .then((payload) => {
+      .then(() => {
       })
       .catch(() => {})
   }
