@@ -3,7 +3,6 @@ import { useDocumentTitle } from 'usehooks-ts'
 import { useAppSelector } from '@/store'
 import {
   useLazyGetApartmentQuery,
-  useLazyGetApartmentsQuery,
 } from '@/features/apartment/apartmentSlice'
 import { useEffect, useState } from 'react'
 import { ApartmentFormSchema } from '@/schema/apartment.validate'

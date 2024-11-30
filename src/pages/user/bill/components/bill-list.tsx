@@ -1,7 +1,7 @@
 import BillItem from '@/pages/user/bill/components/bill-item'
-import { Bill } from '@/schema/bill.validate'
+import { IBill } from '@/schema/bill.validate'
 interface BillListProps {
-  bills?: Bill[]
+  bills?: IBill[]
 }
 
 const BillList = ({ bills }: BillListProps) => {
