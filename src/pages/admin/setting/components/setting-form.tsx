@@ -5,11 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Skeleton } from '@/components/ui/skeleton'
 import {
-  usePatchSettingMutation,
-  useUpdateTransitionDelinquentMutation,
-  useUpdateTransitionOverdueMutation,
-  useUpdateTransitionPaymentMutation,
-  useUpdateTransitionPrepaymentMutation,
+  usePatchSettingMutation
 } from '@/features/setting/settingSlice'
 import { SettingSchema } from '@/schema/setting.validate'
 import { useEffect } from 'react'
@@ -21,8 +17,6 @@ import ButtonOverdue from './components/button-overdue'
 import ButtonPrepayment from './components/button-prepayment'
 import ButtonPayment from './components/button-payment'
 import ButtonDelinquent from './components/button-delinquent'
-import { zodResolver } from '@hookform/resolvers/zod'
-
 interface SettingFormProps {
   setting?: z.infer<typeof SettingSchema>
   isLoading?: boolean

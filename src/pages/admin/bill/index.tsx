@@ -1,5 +1,4 @@
-import { Input } from '@/components/ui/input'
-import { Droplets, Filter, Search } from 'lucide-react'
+import { Droplets, Filter } from 'lucide-react'
 import { Button } from '@components/ui/button'
 import BillList from './components/bill-list'
 import { useDocumentTitle } from 'usehooks-ts'

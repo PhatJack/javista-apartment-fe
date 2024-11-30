@@ -1,7 +1,6 @@
-import { IPackage, PackageSchema } from '@/schema/package.validate'
+import { IPackage} from '@/schema/package.validate'
 import { apiSlice } from '../api/apiSlice'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { z } from 'zod'
 
 interface PackageState {
   showPackage: boolean
@@ -70,7 +69,7 @@ const packageApiSlice = apiSlice.injectEndpoints({
           url: url,
         }
       },
-      providesTags: (result, error, { id }) => [{ type: 'Packages', id }],
+      providesTags: (_result, _error, { id }) => [{ type: 'Packages', id }],
     }),
     updatePackage: builder.mutation<
       IPackage,
@@ -84,7 +83,7 @@ const packageApiSlice = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: data.body,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: 'Packages', id }],
+      invalidatesTags: (_result, _error, { id }) => [{ type: 'Packages', id }],
     }),
     updateImagePackage: builder.mutation<void, { id?: number; image: FormData }>({
       query: ({ id, image }) => ({
@@ -95,7 +94,7 @@ const packageApiSlice = apiSlice.injectEndpoints({
           'Content-Type': undefined,
         },
       }),
-      invalidatesTags: (result, error, { id }) => [
+      invalidatesTags: (_result, _error, { id }) => [
         { type: 'Packages', id },
         { type: 'Packages', id: 'LIST' },
       ],
@@ -120,7 +119,7 @@ const packageApiSlice = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: data,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: 'Packages', id }],
+      invalidatesTags: (_result, _error, { id }) => [{ type: 'Packages', id }],
     }),
   }),
 })

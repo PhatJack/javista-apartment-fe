@@ -35,7 +35,7 @@ export const serviceApiSlice = apiSlice.injectEndpoints({
         url: `services/${id}`,
         method: 'GET',
       }),
-      providesTags: (result, error, id) => [{ type: 'Service', id }],
+      providesTags: (_result, _error, id) => [{ type: 'Service', id }],
     }),
     createService: builder.mutation<IService, Omit<IService, 'id' | 'createdAt' | 'updatedAt'>>({
       query: (body) => ({
@@ -57,7 +57,7 @@ export const serviceApiSlice = apiSlice.injectEndpoints({
         method: 'PUT',
         body: data.body,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: 'Service', id }],
+      invalidatesTags: (_result, _error, { id }) => [{ type: 'Service', id }],
     }),
     patchService: builder.mutation<IService, Partial<IService>>({
       query: (body) => ({
@@ -71,7 +71,7 @@ export const serviceApiSlice = apiSlice.injectEndpoints({
         url: `services/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, id) => [{ type: 'Service', id }],
+      invalidatesTags: (_result, _error, id) => [{ type: 'Service', id }],
     }),
   }),
 })

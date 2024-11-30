@@ -15,14 +15,12 @@ import { Separator } from '@/components/ui/separator'
 import { Input } from '@/components/ui/input'
 import { ApartmentSchema } from '@/schema/apartment.validate'
 import { Textarea } from '@/components/ui/textarea'
-import { useCreateApartmentMutation } from '@/features/apartment/apartmentSlice'
 
 interface ApartmentFormProps {
   textTrigger: string
 }
 
 const ApartmentForm = ({ textTrigger }: ApartmentFormProps) => {
-  const [createApartment, { isLoading }] = useCreateApartmentMutation()
   const form = useForm<z.infer<typeof ApartmentSchema>>({
     defaultValues: {
       area: undefined,

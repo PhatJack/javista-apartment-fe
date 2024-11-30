@@ -24,7 +24,7 @@ export const rejectedReasonsSlice = apiSlice.injectEndpoints({
       query: (id) => ({
         url: `rejectionReasons/${id}`,
       }),
-      providesTags: (result, error, id) => [{ type: 'RejectionReasons', id }],
+      providesTags: (_result, _error, id) => [{ type: 'RejectionReasons', id }],
     }),
     createRejectionReason: builder.mutation<
       RejectionReasonType,
@@ -35,7 +35,7 @@ export const rejectedReasonsSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: data,
       }),
-      invalidatesTags: (result, error, arg) => [{ type: 'Reports', id: arg.reportId ?? undefined }],
+      invalidatesTags: (_result, _error, arg) => [{ type: 'Reports', id: arg.reportId ?? undefined }],
     }),
     updateRejectionReason: builder.mutation<
       void,
@@ -46,14 +46,14 @@ export const rejectedReasonsSlice = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: data.body,
       }),
-      invalidatesTags: (result, error, arg) => [{ type: 'RejectionReasons', id: arg.id }],
+      invalidatesTags: (_result, _error, arg) => [{ type: 'RejectionReasons', id: arg.id }],
     }),
     deleteRejectionReason: builder.mutation<void, string | number | undefined>({
       query: (id: string) => ({
         url: `rejectionReasons/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, id) => [{ type: 'RejectionReasons', id }],
+      invalidatesTags: (_result, _error, id) => [{ type: 'RejectionReasons', id }],
     }),
   }),
 })

@@ -48,7 +48,7 @@ export const relationshipsSlice = apiSlice.injectEndpoints({
       query: (id) => ({
         url: `relationships/${id}?includes=rejectionReason`,
       }),
-      providesTags: (result, error, id) => (result ? [{ type: 'Relationships', id }] : []),
+      providesTags: (result, _error, id) => (result ? [{ type: 'Relationships', id }] : []),
     }),
     createRelationship: builder.mutation<
       RelationshipsTypeSchema,
@@ -64,7 +64,7 @@ export const relationshipsSlice = apiSlice.injectEndpoints({
           apartmentId: data.apartmentId,
         },
       }),
-      invalidatesTags(result, error, arg, meta) {
+      invalidatesTags(_result, _error, _arg, _meta) {
         return [{ type: 'Relationships', id: 'LIST' }]
       },
     }),
@@ -77,14 +77,14 @@ export const relationshipsSlice = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: data.body,
       }),
-      invalidatesTags: (result, error, arg) => [{ type: 'Relationships', id: arg.id }],
+      invalidatesTags: (_result, _error, arg) => [{ type: 'Relationships', id: arg.id }],
     }),
     deleteRelationship: builder.mutation<void, { id?: string | number; apartmentId?: string }>({
       query: (data) => ({
         url: `relationships/${data.id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, { id, apartmentId }) => [{ type: 'Relationships', id }],
+      invalidatesTags: (_result, _error, { id }) => [{ type: 'Relationships', id }],
     }),
   }),
 })

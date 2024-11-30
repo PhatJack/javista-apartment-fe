@@ -29,7 +29,7 @@ const RecentReports = () => {
             className="p-4 min-w-[300px] min-h-[200px] max-h-[250px] bg-white rounded-md flex flex-col gap-4 border">
             <div className="w-full flex justify-between items-center">
               <span className="font-medium">
-                {formatDateWithSlash(new Date(report.createdAt))}
+                {report.createdAt ? formatDateWithSlash(new Date(report.createdAt)) : 'N/A'}
               </span>
               <span className="font-medium text-primary">
                 {report.relationship?.apartmentId}

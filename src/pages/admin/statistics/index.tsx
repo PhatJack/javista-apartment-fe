@@ -15,20 +15,20 @@ const Index = () => {
   const [startDate, setStartDate] = useState<string>(`${currentYear}-01`)
   const [endDate, setEndDate] = useState<string>(`${currentYear}-12`)
   const debounceStartDate = useDebounceCallback((value: string) => {
-    if(validateDates(value, endDate)) {
+    if (validateDates(value, endDate)) {
       setStartDate(value)
-    }else {
+    } else {
       toast.error('Start date must be less than end date')
     }
   }, 500)
   const debounceEndDate = useDebounceCallback((value: string) => {
-    if(validateDates(startDate, value)) {
+    if (validateDates(startDate, value)) {
       setEndDate(value)
-    }else {
+    } else {
       toast.error('End date must be greater than start date')
     }
   }, 500)
-  const { data, isLoading, isError, isFetching } = useStatisticsRevenueQuery({ startDate, endDate })
+  const { data } = useStatisticsRevenueQuery({ startDate, endDate })
 
   const transformChartData = (data?: Statistic[]) => {
     return data?.map((item, index) => {

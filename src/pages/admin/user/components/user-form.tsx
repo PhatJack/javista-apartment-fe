@@ -31,11 +31,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import Overlay from '@/components/overlay/Overlay'
 
 interface UserFormProps {
-  open: boolean
+  open?: boolean
   onClose: (value: boolean) => void
 }
 
-const UserForm = ({ open, onClose }: UserFormProps) => {
+const UserForm = ({ onClose }: UserFormProps) => {
   const [createUser, { isLoading }] = useCreateUserMutation()
   const form = useForm<Omit<z.infer<typeof UserSchema>, 'id'>>({
     mode: 'onSubmit',

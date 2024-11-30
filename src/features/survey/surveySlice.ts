@@ -79,13 +79,13 @@ const surveyApiSlice = apiSlice.injectEndpoints({
           },
         }
       },
-      providesTags: (result, error, id) => (result ? [{ type: 'Surveys', id }] : []),
+      providesTags: (result, _error, id) => (result ? [{ type: 'Surveys', id }] : []),
     }),
     getSurveyStatistics: builder.query<ISurveyStatistics, number | undefined>({
       query: (id) => ({
         url: `statistics/surveys/${id}`,
       }),
-      transformResponse(baseQueryReturnValue : {result: ISurveyStatistics}, meta, arg) {
+      transformResponse(baseQueryReturnValue : {result: ISurveyStatistics}, _meta, _arg) {
         const data = baseQueryReturnValue.result as ISurveyStatistics
         return data;
       },
@@ -118,14 +118,14 @@ const surveyApiSlice = apiSlice.injectEndpoints({
         method: 'PUT',
         body: data.body,
       }),
-      invalidatesTags: (result, error, arg) => [{ type: 'Surveys', id: arg.id }],
+      invalidatesTags: (_result, _error, arg) => [{ type: 'Surveys', id: arg.id }],
     }),
     deleteSurvey: builder.mutation<void, string | number | undefined>({
       query: (id) => ({
         url: `surveys/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, id) => [{ type: 'Surveys', id }],
+      invalidatesTags: (_result, _error, id) => [{ type: 'Surveys', id }],
     }),
   }),
 })

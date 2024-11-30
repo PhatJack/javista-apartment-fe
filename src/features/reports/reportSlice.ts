@@ -49,7 +49,7 @@ export const reportsSlice = apiSlice.injectEndpoints({
       query: (id) => ({
         url: `reports/${id}`,
       }),
-      providesTags: (result, error, id) => (result ? [{ type: 'Reports', id }] : []),
+      providesTags: (result, _error, id) => (result ? [{ type: 'Reports', id }] : []),
     }),
     createReport: builder.mutation<
       ReportType,
@@ -68,14 +68,14 @@ export const reportsSlice = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: data.body,
       }),
-      invalidatesTags: (result, error, arg) => [{ type: 'Reports', id: arg.id }],
+      invalidatesTags: (_result, _error, arg) => [{ type: 'Reports', id: arg.id }],
     }),
     deleteReport: builder.mutation<void, string | number | undefined>({
       query: (id: string) => ({
         url: `reports/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, id) => [{ type: 'Reports', id }],
+      invalidatesTags: (_result, _error, id) => [{ type: 'Reports', id }],
     }),
   }),
 })

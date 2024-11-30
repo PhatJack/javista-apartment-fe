@@ -15,8 +15,6 @@ const BillUpdateWaterReading = ({ setIsOpenWaterReading }: BillUpdateWaterReadin
   const [bills, setBills] = useState<IBill[]>([])
   const {
     data: setting,
-    isLoading: isLoadingSetting,
-    isFetching: isFetchingSetting,
     isSuccess,
   } = useGetSettingsQuery()
 
@@ -33,7 +31,7 @@ const BillUpdateWaterReading = ({ setIsOpenWaterReading }: BillUpdateWaterReadin
       .then((res) => {
         setBills(res.data)
       })
-      .catch((err) => {})
+      .catch((_err) => {})
   }
 
   useEffect(() => {

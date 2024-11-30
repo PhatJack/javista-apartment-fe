@@ -93,7 +93,7 @@ const userApiSlice = apiSlice.injectEndpoints({
     }),
     getUserById: builder.query<User, string | number>({
       query: (id) => `users/${id}`,
-      providesTags: (result, error, id) => [{ type: 'Users', id }],
+      providesTags: (_result, _error, id) => [{ type: 'Users', id }],
     }),
     getCurrentUser: builder.query<User, void>({
       query: () => 'users/me',
@@ -118,7 +118,7 @@ const userApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: data,
       }),
-      invalidatesTags(result, error, arg, meta) {
+      invalidatesTags(_result, _error, _arg, _meta) {
         return [{ type: 'Users', id: 'LIST' }]
       },
     }),
@@ -138,14 +138,14 @@ const userApiSlice = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: data.body,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: 'Users', id }],
+      invalidatesTags: (_result, _error, { id }) => [{ type: 'Users', id }],
     }),
     deleteUser: builder.mutation<void, string | number | undefined>({
       query: (id) => ({
         url: `users/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, id) => [{ type: 'Users' }],
+      invalidatesTags: (_result, _error, _id) => [{ type: 'Users' }],
     }),
     updatePassord: builder.mutation<void, { body: FirstLogin }>({
       query: (data) => ({

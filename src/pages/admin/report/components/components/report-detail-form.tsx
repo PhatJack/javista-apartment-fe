@@ -38,8 +38,7 @@ const ReportFormDetail = ({ report, setShowDetail }: ReportFormDetailProps) => {
     setRejectionReason(rejectionReason)
   }, 500)
   const [updateReport, { isLoading }] = useUpdateReportMutation()
-  const [getRejectedReason, { isLoading: isLoadingRejectedReason, data }] =
-    useLazyGetRejectionReasonQuery()
+  const [getRejectedReason, { data }] = useLazyGetRejectionReasonQuery()
   const [createRejection, { isLoading: isLoadingRejection }] = useCreateRejectionReasonMutation()
   const [deleteReport, { isLoading: isLoadingDelete }] = useDeleteReportMutation()
 

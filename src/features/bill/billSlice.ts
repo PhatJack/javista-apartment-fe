@@ -55,7 +55,7 @@ export const billSlice = apiSlice.injectEndpoints({
       query: (id) => ({
         url: `bills/${id}?includes=Relationship`,
       }),
-      providesTags: (result, error, id) => [{ type: 'Bills', id }],
+      providesTags: (_result, _error, id) => [{ type: 'Bills', id }],
     }),
     updateBill: builder.mutation<void, { id?: number; body: Partial<IBill> }>({
       query: (data) => ({
@@ -63,14 +63,14 @@ export const billSlice = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: data.body,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: 'Bills', id }],
+      invalidatesTags: (_result, _error, { id }) => [{ type: 'Bills', id }],
     }),
     deleteBill: builder.mutation<void, number | undefined>({
       query: (id) => ({
         url: `bills/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, id) => [{ type: 'Bills', id }],
+      invalidatesTags: (_result, _error, id) => [{ type: 'Bills', id }],
     }),
     paidByMomo: builder.mutation<
       void,
@@ -98,7 +98,7 @@ export const billSlice = apiSlice.injectEndpoints({
           method: 'PUT',
           body: data.body,
         }),
-        invalidatesTags: (result, error) => [{ type: 'Bills' }],
+        invalidatesTags: (_result, _error) => [{ type: 'Bills' }],
       },
     ),
     statisticsRevenue: builder.query<Statistic[], StatisticQuery>({
@@ -107,8 +107,8 @@ export const billSlice = apiSlice.injectEndpoints({
       }),
       transformResponse(
         baseQueryReturnValue: { result?: { monthlyRevenueStatistics: Statistic[] } },
-        meta,
-        arg,
+        _meta,
+        _arg,
       ) {
         return baseQueryReturnValue.result?.monthlyRevenueStatistics || []
       },

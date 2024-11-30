@@ -6,12 +6,12 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
-import { Service } from '@/schema/service.validate'
+import { IService } from '@/schema/service.validate'
 import ServiceItem from './service-item'
 import TableRowSkeleton from '@/components/skeleton/TableRowSkeleton'
 
 interface ServiceListProps {
-  services?: Service[]
+  services?: IService[]
   isLoading?: boolean
   isFetching?: boolean
 }

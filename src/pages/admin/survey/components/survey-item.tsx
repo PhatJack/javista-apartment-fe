@@ -36,10 +36,10 @@ const SurveyItem = ({ survey }: SurveyItemProps) => {
   }
 
   const handleEditSurvey = (startDate: Date) => {
-    // if (new Date(startDate) < new Date()) {
-    //   toast.error('Survey is started, you cannot edit it')
-    //   return
-    // }
+    if (new Date(startDate) < new Date()) {
+      toast.error('Survey is started, you cannot edit it')
+      return
+    }
     navigate(`/admin/surveys/${survey.id}`)
   }
 

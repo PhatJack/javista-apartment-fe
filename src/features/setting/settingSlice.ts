@@ -32,14 +32,14 @@ const settingApiSlice = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: data,
       }),
-      invalidatesTags: (result, error, arg) => [{ type: 'Settings', id: arg.id }],
+      invalidatesTags: (_result, _error, arg) => [{ type: 'Settings', id: arg.id }],
     }),
     updateTransitionPrepayment: builder.mutation<ISetting, void>({
       query: () => ({
         url: 'settings/transition/prepayment',
         method: 'POST',
       }),
-      invalidatesTags(result, error, arg, meta) {
+      invalidatesTags(_result, _error, _arg, _meta) {
         return [{ type: 'Settings' }, { type: 'Bills' }]
       },
     }),
@@ -48,7 +48,7 @@ const settingApiSlice = apiSlice.injectEndpoints({
         url: 'settings/transition/payment',
         method: 'POST',
       }),
-      invalidatesTags(result, error, arg, meta) {
+      invalidatesTags(_result, _error, _arg, _meta) {
         return [{ type: 'Settings' }, { type: 'Bills' }]
       },
     }),
@@ -57,7 +57,7 @@ const settingApiSlice = apiSlice.injectEndpoints({
         url: 'settings/transition/overdue',
         method: 'POST',
       }),
-      invalidatesTags(result, error, arg, meta) {
+      invalidatesTags(_result, _error, _arg, _meta) {
         return [{ type: 'Settings' }, { type: 'Bills' }]
       },
     }),
@@ -66,7 +66,7 @@ const settingApiSlice = apiSlice.injectEndpoints({
         url: 'settings/transition/delinquent',
         method: 'POST',
       }),
-      invalidatesTags(result, error, arg, meta) {
+      invalidatesTags(_result, _error, _arg, _meta) {
         return [{ type: 'Settings' }, { type: 'Apartments', id: 'LIST' }]
       },
     }),

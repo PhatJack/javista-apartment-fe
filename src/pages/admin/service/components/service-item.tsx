@@ -1,12 +1,12 @@
 import AlertDelete from '@/components/alert/AlertDelete'
 import { TableCell, TableRow } from '@/components/ui/table'
 import { useDeleteServiceMutation } from '@/features/service/serviceSlice'
-import { Service } from '@/schema/service.validate'
+import { IService } from '@/schema/service.validate'
 import { toast } from 'sonner'
 import ServiceDetail from './service-detail'
 
 interface IServiceItemProps {
-  service: Service
+  service: IService
 }
 
 const ServiceItem = ({ service }: IServiceItemProps) => {

@@ -1,6 +1,7 @@
 import { ReportStatusSchema } from '@/enums'
 import { z } from 'zod'
 import { BaseEntitySchema } from './base.entity'
+import { RelationshipsSchema } from './relationship.validate'
 
 export const RejectionReasonSchema = z.object({
   id: z.number(),
@@ -21,9 +22,12 @@ export const ReportSchema = z.object({
 export type ReportFormSchema = z.infer<typeof ReportSchema>
 
 export type ReportType = z.infer<typeof ReportSchema> & {
+  relationship?: z.infer<typeof RelationshipsSchema>
   createdAt?: Date | string
   updatedAt?: Date | null | string
   deleteAt?: Date | null | string
 }
 
-export const ExtendedReportSchema: z.ZodType<ReportType> = ReportSchema.merge(BaseEntitySchema)
+export const ExtendedReportSchema: z.ZodType<ReportType> = ReportSchema.extend({
+  relationship: RelationshipsSchema.optional(),
+}).merge(BaseEntitySchema)

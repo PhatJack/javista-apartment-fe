@@ -50,7 +50,7 @@ export const apartmentSlice = apiSlice.injectEndpoints({
           url: url,
         }
       },
-      providesTags: (result, error, { id }) => (result ? [{ type: 'Apartments', id }] : []),
+      providesTags: (result, _error, { id }) => (result ? [{ type: 'Apartments', id }] : []),
     }),
     createApartment: builder.mutation<ApartmentFormSchema, Partial<ApartmentFormSchema>>({
       query: (body) => ({
@@ -76,14 +76,14 @@ export const apartmentSlice = apiSlice.injectEndpoints({
         method: 'PUT',
         body: data.body,
       }),
-      invalidatesTags: (result, error, arg) => [{ type: 'Apartments', id: arg.id }],
+      invalidatesTags: (_result, _error, arg) => [{ type: 'Apartments', id: arg.id }],
     }),
     deleteApartment: builder.mutation<void, string | undefined>({
       query: (id: string) => ({
         url: `apartments/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, id) => [{ type: 'Apartments', id }],
+      invalidatesTags: (_result, _error, id) => [{ type: 'Apartments', id }],
     }),
   }),
 })
