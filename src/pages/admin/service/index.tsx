@@ -1,6 +1,5 @@
 import { Input } from '@/components/ui/input'
-import { Filter, Search } from 'lucide-react'
-import { Button } from '@components/ui/button'
+import { Search } from 'lucide-react'
 import ServiceList from './components/service-list'
 import BreadCrumb from '@/components/breadcrumb'
 import { useDebounceCallback, useDocumentTitle } from 'usehooks-ts'
@@ -48,10 +47,6 @@ const Index = () => {
                     onChange={(e) => handleSearch(e.target.value)}
                   />
                 </div>
-                <Button className="gap-1" size={'lg'} variant={'secondary'}>
-                  <Filter size={20} />
-                  Filter
-                </Button>
               </div>
               <ServiceDetail mode="create" />
             </div>

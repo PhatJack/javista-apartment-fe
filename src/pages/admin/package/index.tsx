@@ -1,5 +1,5 @@
 import { Input } from '@/components/ui/input'
-import { Filter, Search } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { Button } from '@components/ui/button'
 import PackageList from './components/package-list'
 import BreadCrumb from '@/components/breadcrumb'
@@ -39,10 +39,6 @@ const Index = () => {
                     className="border-none shadow-none focus-visible:ring-0"
                   />
                 </div>
-                <Button className="gap-1" size={'lg'} variant={'secondary'}>
-                  <Filter size={20} />
-                  Filter
-                </Button>
               </div>
               <Button
                 type="button"

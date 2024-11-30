@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { createNewSurvey, useGetSurverysQuery } from '@/features/survey/surveySlice'
 import { RootState, useAppDispatch } from '@/store'
-import { Filter, Search } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useDocumentTitle } from 'usehooks-ts'
@@ -53,10 +53,6 @@ const Index = () => {
                       className="border-none shadow-none focus-visible:ring-0"
                     />
                   </div>
-                  <Button className="gap-1" size={`lg`} variant={'secondary'}>
-                    <Filter size={20} />
-                    <span className="sm:inline-block hidden">Filter</span>
-                  </Button>
                 </div>
                 <Button
                   onClick={() => dispatch(createNewSurvey({ isCreateNewSurvey: true }))}

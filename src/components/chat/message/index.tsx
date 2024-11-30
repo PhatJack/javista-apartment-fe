@@ -1,6 +1,6 @@
 import { Timestamp } from '@firebase/firestore-types'
 import { useAppSelector } from '@/store'
-
+import { memo } from 'react'
 interface MessageProps {
   senderId: number
   text: string
@@ -17,9 +17,7 @@ const Index = ({ senderId, text, timestamp }: MessageProps) => {
       }`}>
       <div
         className={`${
-          senderId !== user?.id
-            ? 'col-start-1 row-start-1'
-            : 'col-start-2 row-start-1'
+          senderId !== user?.id ? 'col-start-1 row-start-1' : 'col-start-2 row-start-1'
         } text-sm leading-tight`}>
         {/* {senderId !== user?.id ? `${user?.fullName}` : `${userSend?.fullName}`}{' '} */}
         <span className="text-xs  opacity-70">
@@ -44,16 +42,8 @@ const Index = ({ senderId, text, timestamp }: MessageProps) => {
           }`}></span>
         {text}
       </p>
-      {/* <div
-        className={`text-sm opacity-70 flex gap-1 items-center ${
-          senderId !== user?.id
-            ? 'col-start-1 row-start-1'
-            : 'col-start-2 row-start-1'
-        }}`}>
-        <CheckCheck size={16} /> seen at 12:45
-      </div> */}
     </div>
   )
 }
 
-export default Index
+export default memo(Index)

@@ -80,7 +80,7 @@ const ChatContainer = () => {
       </header>
 
       <Separator />
-      <div className="size-full relative bg-black">
+      <div className="size-full relative bg-black overflow-hidden">
         <img
           src={GridWallpaper}
           alt="grid wallpaper"

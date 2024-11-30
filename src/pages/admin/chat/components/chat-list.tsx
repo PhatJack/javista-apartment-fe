@@ -21,11 +21,10 @@ const ChatList = () => {
 
     const { scrollTop, scrollHeight, clientHeight } = chatContainerRef.current
     const scrollThreshold = 20
-    const isNearBottom =
-      scrollHeight - (scrollTop + clientHeight) <= scrollThreshold
+    const isNearBottom = scrollHeight - (scrollTop + clientHeight) <= scrollThreshold
     // console.log(isNearBottom)
     if (isNearBottom && data?.data.length != data?.totalElements) {
-			console.log(data)
+      console.log(data)
       console.log('Fetching more data')
       setCurrentPage((prev) => prev + 1)
       setPageSize(5)
@@ -45,34 +44,24 @@ const ChatList = () => {
   }, [isFetching])
 
   return (
-    <div
-      ref={chatContainerRef}
-      className="h-full flex flex-col gap-1 overflow-y-auto">
+    <div ref={chatContainerRef} className="h-full flex flex-col gap-1 overflow-y-auto">
       {isLoading ? (
         <div className="flex items-center justify-center h-full">
-          <Loader2 className='animate-spin text-primary' />
+          <Loader2 className="animate-spin text-primary" />
         </div>
       ) : (
         data?.data.map((user, index) => (
           <div
             key={index}
             onClick={() => navigate(`/admin/chat/${user.id}`)}
-            className={`w-full rounded-md h-fit flex items-center gap-2 px-2 py-3 hover:bg-zinc-200 transition-all cursor-pointer ${Number(id) === user.id ? "bg-primary" : ""}`}>
+            className={`w-full rounded-md h-fit flex items-center gap-2 px-2 py-3 hover:bg-zinc-200 transition-all cursor-pointer ${
+              Number(id) === user.id ? 'bg-primary' : ''
+            }`}>
             <Avatar>
               <AvatarImage src={user.avatar ?? DefaultAvatar} />
-              <AvatarFallback>
-                AVT
-              </AvatarFallback>
+              <AvatarFallback>AVT</AvatarFallback>
             </Avatar>
-            <div className="w-full h-full grid grid-cols-[1fr_40px]">
-              <p className="text-sm font-bold">{user.fullName}</p>
-              <span className="size-2 rounded-full bg-green-500"></span>
-              <p className={`text-xs truncate w-[90%] ${Number(id) === user.id ? "text-black" : "text-gray-500"}`}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                nec feugiat nunc. Nam nec.
-              </p>
-              <p className={`text-xs ${Number(id) === user.id ? "text-black" : "text-gray-400"}`}>12:00</p>
-            </div>
+            <p className="text-sm font-bold">{user.fullName}</p>
           </div>
         ))
       )}

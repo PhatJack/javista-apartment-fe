@@ -1,7 +1,7 @@
 import BreadCrumb from '@/components/breadcrumb'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Filter, Search } from 'lucide-react'
+import { Search } from 'lucide-react'
 import UserList from './components/user-list'
 import { useDebounceCallback, useDocumentTitle } from 'usehooks-ts'
 import UserForm from './components/user-form'
@@ -25,7 +25,6 @@ const Index = () => {
   const [pageSize, setPageSize] = useState<number>(10)
   const [searchValue, setSearchValue] = useState<string>('')
   const [filterType, setFilterType] = useState<string>('username') // Default filter
-  const [advancedSearch, setAdvancedSearch] = useState<boolean>(false)
   const handleSearch = useDebounceCallback((value: string) => {
     setSearchValue(value)
     if (value) {
@@ -72,15 +71,6 @@ const Index = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <Button
-                onClick={() => setAdvancedSearch(!advancedSearch)}
-                type="button"
-                className={`w-full lg:w-fit gap-1`}
-                size={'lg'}
-                variant={`${advancedSearch ? 'default' : 'secondary'}`}>
-                <Filter size={20} />
-                Filter
-              </Button>
               <Button type="button" onClick={() => setOpenUserForm(true)}>
                 Create New User
               </Button>
